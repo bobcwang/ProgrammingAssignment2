@@ -103,3 +103,39 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+
+### My R Scripts
+
+The function pairs produce matrix inverse and store it for future retrival. 
+
+Example of usage: Find the inverse of the matrix
+
+    > matrix(c(1,1,-1,1), 2, 2)
+         [,1] [,2]
+    [1,]    1   -1
+    [2,]    1    1
+    > mat_obj <- makeCacheMatrix(matrix(c(1,1,-1,1), 2, 2))
+    > cacheSolve(mat_obj)
+    [,1] [,2]
+    [1,]  0.5  0.5
+    [2,] -0.5  0.5
+    > cacheSolve(mat_obj)
+    getting cached data
+    [,1] [,2]
+    [1,]  0.5  0.5
+    [2,] -0.5  0.5
+    >
+
+### makeCacheMatrix()
+
+This function input is a (square invertable) matrix x. It stores the matrix inverse in m. It provides 4 functions to operate on x & m:
+
+    set - Set the original matrix in the main function to input y  & matrix inverse m to NULL
+    get - Get the matrix x
+    setinverse - Set the matrix inverse to input inverse
+    getinverse - Get the stored matrix inverse m
+
+### cacheSolve()
+
+This function returns inverse of the input matrix object x. If the inverse was computed before, just return it Otherwise, it computes the matrix inverse, using solve() and stores it in m.
+
